@@ -108,7 +108,8 @@ export namespace iconer::util::cfc
 		}
 
 		[[nodiscard]]
-		explicit constexpr operator T() const noexcept
+		explicit constexpr operator T() const noexcept(std::is_nothrow_copy_constructible_v<T>)
+			requires std::copyable<T>
 		{
 			return myData;
 		}
