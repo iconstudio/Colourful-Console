@@ -1,6 +1,7 @@
 export module Iconer.Utility.ColourfulConsole;
 export import Iconer.Utility.ColourfulConsole.Colour;
 export import Iconer.Utility.ColourfulConsole.Palette;
+import <utility>;
 import <iostream>;
 
 export namespace iconer::util::cfc
@@ -226,7 +227,7 @@ std::basic_ostream<Elem, Traits>&
 operator<<(std::basic_ostream<Elem, Traits>& stream, iconer::util::cfc::Colour&& colour)
 noexcept
 {
-	iconer::util::cfc::ConsoleTextColour(static_cast<iconer::util::cfc::Colour&&>(colour));
+	iconer::util::cfc::ConsoleTextColour(std::move(colour));
 
 	return stream;
 }
@@ -246,7 +247,10 @@ std::basic_ostream<Elem, Traits>&
 operator<<(std::basic_ostream<Elem, Traits>& stream, iconer::util::cfc::Palette&& pal)
 noexcept
 {
-	iconer::util::cfc::SetConsoleColour(static_cast<iconer::util::cfc::Palette&&>(pal));
+	iconer::util::cfc::SetConsoleColour(std::move(pal));
+
+	return stream;
+}
 
 	return stream;
 }
