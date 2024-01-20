@@ -90,3 +90,24 @@ struct std::formatter<iconer::util::cfc::Colour, char>
 		}
 	}
 };
+
+export template<>
+struct std::formatter<iconer::util::cfc::Colour, wchar_t>
+{
+	static std::wformat_parse_context::iterator parse(std::wformat_parse_context& context) noexcept
+	{
+		return context.begin();
+	}
+
+	static auto format(const iconer::util::cfc::Colour& colour, std::wformat_context& context) noexcept
+	{
+		if (colour.IsOk())
+		{
+			return std::format_to(context.out(), L"Colour {}", colour.GetCode());
+		}
+		else
+		{
+			return std::format_to(context.out(), L"!Invaild Colour");
+		}
+	}
+};
