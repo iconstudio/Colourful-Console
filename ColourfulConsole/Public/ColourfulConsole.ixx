@@ -1,6 +1,7 @@
 export module Iconer.Utility.ColourfulConsole;
 export import Iconer.Utility.ColourfulConsole.Colour;
 export import Iconer.Utility.ColourfulConsole.Palette;
+export import Iconer.Utility.ColourfulConsole.Dye;
 import <utility>;
 import <iostream>;
 
@@ -251,6 +252,44 @@ noexcept
 
 	return stream;
 }
+
+export template<typename Elem, typename Traits, typename T>
+std::basic_ostream<Elem, Traits>&
+operator<<(std::basic_ostream<Elem, Traits>& stream, iconer::util::cfc::Dye<T>& dye)
+noexcept(noexcept(std::declval<std::basic_ostream<Elem, Traits>&>()))
+{
+	iconer::util::cfc::SetConsoleColour(dye.GetPalette());
+	stream << dye.GetData();
+
+	return stream;
+}
+
+export template<typename Elem, typename Traits, typename T>
+std::basic_ostream<Elem, Traits>&
+operator<<(std::basic_ostream<Elem, Traits>& stream, const iconer::util::cfc::Dye<T>& dye)
+{
+	iconer::util::cfc::SetConsoleColour(dye.GetPalette());
+	stream << dye.GetData();
+
+	return stream;
+}
+
+export template<typename Elem, typename Traits, typename T>
+std::basic_ostream<Elem, Traits>&
+operator<<(std::basic_ostream<Elem, Traits>& stream, iconer::util::cfc::Dye<T>&& dye)
+{
+	iconer::util::cfc::SetConsoleColour(std::move(dye).GetPalette());
+	stream << std::move(dye).GetData();
+
+	return stream;
+}
+
+export template<typename Elem, typename Traits, typename T>
+std::basic_ostream<Elem, Traits>&
+operator<<(std::basic_ostream<Elem, Traits>& stream, const iconer::util::cfc::Dye<T>&& dye)
+{
+	iconer::util::cfc::SetConsoleColour(std::move(dye).GetPalette());
+	stream << std::move(dye).GetData();
 
 	return stream;
 }
