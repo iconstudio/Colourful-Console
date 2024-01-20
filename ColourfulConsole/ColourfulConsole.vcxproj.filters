@@ -33,22 +33,11 @@
     <ClCompile Include="Public\Dye.ixx">
       <Filter>Public</Filter>
     </ClCompile>
-    <ClCompile Include="Public\DyeStream.ixx">
-      <Filter>Public</Filter>
-    </ClCompile>
     <ClCompile Include="Private\ColourfulConsole.cpp">
-      <Filter>Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Private\Dye.cpp">
       <Filter>Private</Filter>
     </ClCompile>
     <ClCompile Include="Public\Palette.ixx">
       <Filter>Public</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Public\__ColourfulConsole.h">
-      <Filter>Public</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

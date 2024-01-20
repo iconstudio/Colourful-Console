@@ -158,16 +158,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Private\ColourfulConsole.cpp" />
-    <ClCompile Include="Private\Dye.cpp" />
     <ClCompile Include="Public\Colour.ixx" />
     <ClCompile Include="Public\ColourCodes.ixx" />
     <ClCompile Include="Public\ColourfulConsole.ixx" />
     <ClCompile Include="Public\Dye.ixx" />
-    <ClCompile Include="Public\DyeStream.ixx" />
     <ClCompile Include="Public\Palette.ixx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Public\__ColourfulConsole.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
