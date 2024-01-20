@@ -3,6 +3,7 @@ export import Iconer.Utility.ColourfulConsole.Colour;
 export import Iconer.Utility.ColourfulConsole.Palette;
 import <type_traits>;
 import <concepts>;
+import <format>;
 
 export namespace iconer::util::cfc
 {
@@ -119,3 +120,31 @@ export namespace iconer::util::cfc
 		Palette myPalette;
 	};
 }
+
+export template<typename T>
+struct std::formatter<iconer::util::cfc::Dye<T>, char>
+{
+	static std::format_parse_context::iterator parse(std::format_parse_context& context) noexcept
+	{
+		return context.begin();
+	}
+
+	static auto format(const iconer::util::cfc::Dye<T>& dye, std::format_context& context) noexcept
+	{
+		return std::format_to(context.out(), "Dye ({})", dye.GetData());
+	}
+};
+
+export template<typename T>
+struct std::formatter<iconer::util::cfc::Dye<T>, wchar_t>
+{
+	static std::format_parse_context::iterator parse(std::wformat_parse_context& context) noexcept
+	{
+		return context.begin();
+	}
+
+	static auto format(const iconer::util::cfc::Dye<T>& dye, std::wformat_context& context) noexcept
+	{
+		return std::format_to(context.out(), L"Dye ({})", dye.GetData());
+	}
+};
