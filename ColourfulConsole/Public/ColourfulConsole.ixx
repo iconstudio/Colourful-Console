@@ -211,4 +211,22 @@ export namespace iconer::util::cfc
 	}
 }
 
+export template<typename Elem, typename Traits>
+std::basic_ostream<Elem, Traits>&
+operator<<(std::basic_ostream<Elem, Traits>& stream, const iconer::util::cfc::Colour& colour)
+noexcept
+{
+	ConsoleTextColour(colour);
+
+	return stream;
+}
+
+export template<typename Elem, typename Traits>
+std::basic_ostream<Elem, Traits>&
+operator<<(std::basic_ostream<Elem, Traits>& stream, iconer::util::cfc::Colour&& colour)
+noexcept
+{
+	ConsoleTextColour(static_cast<iconer::util::cfc::Colour&&>(colour));
+
+	return stream;
 }
