@@ -19,56 +19,56 @@ export namespace iconer::util::cfc
 			noexcept(std::is_nothrow_copy_constructible_v<T>)
 			: myData(value), myPalette{ text_colour, colors::Black }
 		{
-			static_assert(std::copyable<T>);
+			static_assert(std::copy_constructible<T>);
 		}
 
 		constexpr Dye(const T& value, Colour&& text_colour)
 			noexcept(std::is_nothrow_copy_constructible_v<T>)
 			: myData(value), myPalette{ std::move(text_colour), colors::Black }
 		{
-			static_assert(std::copyable<T>);
+			static_assert(std::copy_constructible<T>);
 		}
 
 		constexpr Dye(const T& value, const Palette& palette)
 			noexcept(std::is_nothrow_copy_constructible_v<T>)
 			: myData(value), myPalette(palette)
 		{
-			static_assert(std::copyable<T>);
+			static_assert(std::copy_constructible<T>);
 		}
 
 		constexpr Dye(const T& value, Palette&& palette)
 			noexcept(std::is_nothrow_copy_constructible_v<T>)
 			: myData(value), myPalette(std::move(palette))
 		{
-			static_assert(std::copyable<T>);
+			static_assert(std::copy_constructible<T>);
 		}
 
 		constexpr Dye(T&& value, const Colour& text_colour)
 			noexcept(std::is_nothrow_move_constructible_v<T>)
 			: myData(std::move(value)), myPalette{ text_colour, colors::Black }
 		{
-			static_assert(std::movable<T>);
+			static_assert(std::move_constructible<T>);
 		}
 
 		constexpr Dye(T&& value, Colour&& text_colour)
 			noexcept(std::is_nothrow_move_constructible_v<T>)
 			: myData(std::move(value)), myPalette{ std::move(text_colour), colors::Black }
 		{
-			static_assert(std::movable<T>);
+			static_assert(std::move_constructible<T>);
 		}
 
 		constexpr Dye(T&& value, const Palette& palette)
 			noexcept(std::is_nothrow_move_constructible_v<T>)
 			: myData(std::move(value)), myPalette(palette)
 		{
-			static_assert(std::copyable<T>);
+			static_assert(std::move_constructible<T>);
 		}
 
 		constexpr Dye(T&& value, Palette&& palette)
 			noexcept(std::is_nothrow_move_constructible_v<T>)
 			: myData(std::move(value)), myPalette(std::move(palette))
 		{
-			static_assert(std::copyable<T>);
+			static_assert(std::move_constructible<T>);
 		}
 
 		[[nodiscard]]
