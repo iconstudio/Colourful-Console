@@ -109,6 +109,18 @@ export namespace iconer::util::cfc
 		}
 
 		[[nodiscard]]
+		constexpr const Palette& GetPalette() const& noexcept
+		{
+			return myPalette;
+		}
+
+		[[nodiscard]]
+		constexpr const Palette&& GetPalette() && noexcept
+		{
+			return std::move(myPalette);
+		}
+
+		[[nodiscard]]
 		explicit constexpr operator T() const noexcept(std::is_nothrow_copy_constructible_v<T>)
 			requires std::copyable<T>
 		{
