@@ -230,3 +230,23 @@ noexcept
 
 	return stream;
 }
+
+export template<typename Elem, typename Traits>
+std::basic_ostream<Elem, Traits>&
+operator<<(std::basic_ostream<Elem, Traits>& stream, const iconer::util::cfc::Palette& pal)
+noexcept
+{
+	SetConsoleColour(pal);
+
+	return stream;
+}
+
+export template<typename Elem, typename Traits>
+std::basic_ostream<Elem, Traits>&
+operator<<(std::basic_ostream<Elem, Traits>& stream, iconer::util::cfc::Palette&& pal)
+noexcept
+{
+	SetConsoleColour(static_cast<iconer::util::cfc::Palette&&>(pal));
+
+	return stream;
+}
