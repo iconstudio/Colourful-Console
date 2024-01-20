@@ -10,7 +10,7 @@ import <atomic>;
 
 namespace
 {
-	inline constexpr std::uint16_t bad_colour_id = iconer::util::cfc::colors::Unknown.GetIntegerCode();
+	inline constexpr std::uint16_t bad_colour_id = static_cast<std::uint16_t>(iconer::util::cfc::ColourCodes::Unknown);
 	::HANDLE console_handle{};
 	std::atomic_bool handle_ready{};
 
