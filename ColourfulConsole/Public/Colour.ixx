@@ -69,3 +69,24 @@ export namespace iconer::util::cfc
 		};
 	}
 }
+
+export template<>
+struct std::formatter<iconer::util::cfc::Colour, char>
+{
+	static std::format_parse_context::iterator parse(std::format_parse_context& context) noexcept
+	{
+		return context.begin();
+	}
+
+	static auto format(const iconer::util::cfc::Colour& colour, std::format_context& context) noexcept
+	{
+		if (colour.IsOk())
+		{
+			return std::format_to(context.out(), "Colour {}", colour.GetCode());
+		}
+		else
+		{
+			return std::format_to(context.out(), "!Invaild Colour");
+		}
+	}
+};
