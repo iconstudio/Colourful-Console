@@ -84,25 +84,25 @@ export namespace iconer::util::cfc
 		}
 
 		[[nodiscard]]
-		constexpr T& Get() & noexcept
+		constexpr T& GetData() & noexcept
 		{
 			return myData;
 		}
 
 		[[nodiscard]]
-		constexpr const T& Get() const& noexcept
+		constexpr const T& GetData() const& noexcept
 		{
 			return myData;
 		}
 
 		[[nodiscard]]
-		constexpr T&& Get() && noexcept
+		constexpr T&& GetData() && noexcept
 		{
 			return std::move(myData);
 		}
 
 		[[nodiscard]]
-		constexpr const T&& Get() const&& noexcept
+		constexpr const T&& GetData() const&& noexcept
 		{
 			return std::move(myData);
 		}
