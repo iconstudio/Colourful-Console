@@ -216,7 +216,7 @@ std::basic_ostream<Elem, Traits>&
 operator<<(std::basic_ostream<Elem, Traits>& stream, const iconer::util::cfc::Colour& colour)
 noexcept
 {
-	ConsoleTextColour(colour);
+	iconer::util::cfc::ConsoleTextColour(colour);
 
 	return stream;
 }
@@ -226,7 +226,7 @@ std::basic_ostream<Elem, Traits>&
 operator<<(std::basic_ostream<Elem, Traits>& stream, iconer::util::cfc::Colour&& colour)
 noexcept
 {
-	ConsoleTextColour(static_cast<iconer::util::cfc::Colour&&>(colour));
+	iconer::util::cfc::ConsoleTextColour(static_cast<iconer::util::cfc::Colour&&>(colour));
 
 	return stream;
 }
@@ -236,7 +236,7 @@ std::basic_ostream<Elem, Traits>&
 operator<<(std::basic_ostream<Elem, Traits>& stream, const iconer::util::cfc::Palette& pal)
 noexcept
 {
-	SetConsoleColour(pal);
+	iconer::util::cfc::SetConsoleColour(pal);
 
 	return stream;
 }
@@ -246,7 +246,7 @@ std::basic_ostream<Elem, Traits>&
 operator<<(std::basic_ostream<Elem, Traits>& stream, iconer::util::cfc::Palette&& pal)
 noexcept
 {
-	SetConsoleColour(static_cast<iconer::util::cfc::Palette&&>(pal));
+	iconer::util::cfc::SetConsoleColour(static_cast<iconer::util::cfc::Palette&&>(pal));
 
 	return stream;
 }
