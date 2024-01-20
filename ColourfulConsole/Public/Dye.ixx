@@ -71,6 +71,18 @@ export namespace iconer::util::cfc
 			static_assert(std::move_constructible<T>);
 		}
 
+		constexpr void SetData(const T& value) noexcept(std::is_nothrow_copy_assignable_v<T>)
+			requires std::copyable<T>
+		{
+			myData = value;
+		}
+
+		constexpr void SetData(T&& value) noexcept(std::is_nothrow_copy_assignable_v<T>)
+			requires std::movable<T>
+		{
+			myData = std::move(value);
+		}
+
 		[[nodiscard]]
 		constexpr T& Get() & noexcept
 		{
